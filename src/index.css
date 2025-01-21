@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+    body {
+        @apply bg-t-purple;
+        @apply relative;
+        @apply min-h-screen;
+        @apply pb-28;
+        /* @apply pt-28; */
+    }
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url("./assets/Raleway-Light.ttf");
+}
+body {
+    font-family: 'Raleway';
+    /* background-color: black; */
+}
+
+.no-scroll {
+    overflow: hidden;
+}
