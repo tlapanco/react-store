@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { MdOutlineRemoveShoppingCart, MdOutlineAddShoppingCart } from "react-icons/md"
 import { motion } from "framer-motion"
 import Reveal from "./Reveal"
+import { IMG_PREFIX } from '../constants.js'
 
 export default function ProductDetail({ products }) {
     const navigate = useNavigate()
@@ -22,11 +23,12 @@ export default function ProductDetail({ products }) {
         <main className="p-6">
         <section className="max-w-full p-6 grid grid-cols-1 md:grid-cols-2 bg-white border-2 border-s-blue rounded-xl w-[800px] mx-auto gap-5 shadow-xl shadow-s-blue">
             <div className="flex items-center justify-center px-5">
-                <img src={newProduct.image} alt={newProduct.title} className="w-full h-auto md:max-w-[350px] md:max-h-[200px] object-contain" />
+                <img src={newProduct.images[0] ? IMG_PREFIX + newProduct.images[0].name : ''} alt={newProduct.title} className="w-full h-auto md:max-w-[350px] md:max-h-[200px] object-contain" />
             </div>
             <section className="grid grid-cols-1 gap-5">
-                <h2 className="font-bold md:text-2xl"> {newProduct.title} </h2>
-                <p className=" text-xs md:text-sm"> {newProduct.description} </p>
+                <h2 className="text-xl font-bold md:text-2xl"> {newProduct.name} </h2>
+                <span className="md:text-xl font-bold text-m-blue"> ${newProduct.price} </span>
+                <p className="text-md md:text-sm"> {newProduct.description} </p>
                 <section className="w-full flex items-center gap-5">
                 <motion.button
                     whileHover={{ scale: 1.1 }}

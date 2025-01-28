@@ -3,10 +3,11 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
+import { IMG_PREFIX } from '../constants.js'
 
 
 
-export const ProductCard = ({product, isProductInCart, removeFromCart, addToCart}) => {
+export const ProductCard = ({product, isProductInCart, removeFromCart, addToCart}) => {    
     
     return (
         <Reveal>
@@ -14,9 +15,9 @@ export const ProductCard = ({product, isProductInCart, removeFromCart, addToCart
             whileHover={{ translateY: -10 }} 
             className='select-none flex flex-col items-center justify-center p-4 border border-m-blue rounded-xl gap-4 hover:shadow-2xl hover:shadow-m-blue bg-white max-h-[500px] max-w-[400px]'
         >
-            <img src={product.image} className='w-[200px] h-[200px] object-contain' alt={product.title} />
+            <img src={product.images[0] ? IMG_PREFIX + product.images[0].name : ''} className='w-[200px] h-[200px] object-contain' alt={product.name} />
             <h3 className='text-xl font-bold border-b-2 border-b-t-purple line-clamp-1'>
-                {product.title}
+                {product.name}
             </h3>
             <p>Precio: $ <span className='font-semibold'>{product.price} </span> </p>
             <Link to={'product/' + product.id} >

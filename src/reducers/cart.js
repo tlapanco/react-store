@@ -64,6 +64,7 @@ const UPDATE_STATE_BY_ACTION = {
         quantity: 1
       }
     ]
+    
 
     updateLocalStorage(newState)
     return newState

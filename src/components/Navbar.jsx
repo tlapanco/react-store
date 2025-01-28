@@ -39,8 +39,7 @@ export const Navbar = () => {
 		<nav className='flex order-1 md:order-2'>			
 			<ul className='hidden md:flex gap-12'>
 				<NavLink className={({ isActive }) => isActive ? "border-b-2 border-b-m-purple" : ""} to="/" >Productos</NavLink>
-				<NavLink className={({ isActive }) => isActive ? "border-b-2 border-b-m-purple" : ""} to="acerca-de" >Acerca de</NavLink>
-				{/* <NavLink to="contacto" >Contacto</NavLink> */}
+				<NavLink className={({ isActive }) => isActive ? "border-b-2 border-b-m-purple" : ""} to="acerca-de" >Acerca de</NavLink>				
 			</ul>
 
 			<div onClick={toggleNav} className={`md:hidden z-20 p-3 text-xl text-m-purple rounded-full ${nav ? 'border border-m-purple shadow-md shadow-m-purple': ''}`}>
@@ -58,7 +57,6 @@ export const Navbar = () => {
 					<img src={logo} className='w-28 h-auto object-contain mx-auto drop-shadow-md' />
 					<NavLink className='z-30 rounded-full border-2 border-m-purple shadow-xl shadow-m-purple py-2 px-5 text-sm bg-white' onClick={closeNav} to="/" >Productos</NavLink>
 					<NavLink className='z-30 rounded-full border-2 border-m-purple shadow-xl shadow-m-purple py-2 px-5 text-sm bg-white' onClick={closeNav} to="acerca-de" >Acerca de</NavLink>
-					{/* <NavLink className='z-30 rounded-full border-2 border-m-purple shadow-xl shadow-m-purple py-2 px-5 text-sm bg-white' onClick={closeNav} to="contacto" >Contacto</NavLink> */}
 				</ul>
 			</motion.div>
 

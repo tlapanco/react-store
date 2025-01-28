@@ -7,7 +7,7 @@
         @apply relative;
         @apply min-h-screen;
         @apply pb-28;
-        /* @apply pt-28; */
+        @apply pt-24; 
     }
 }
 

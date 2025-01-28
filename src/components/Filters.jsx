@@ -2,7 +2,7 @@ import { useId, useState } from 'react'
 import { useFilters } from '../hooks/useFilters.js'
 
 
-export function Filters () {
+export function Filters ({categories}) {
     
   const { filters, setFilters } = useFilters({category: 'all', minPrice: 0})
   
@@ -20,12 +20,10 @@ export function Filters () {
   }
 
   const handleChangeCategory = (event) => {
-    // ⬇️ ESTO HUELE MAL
-    // estamos pasando la función de actualizar estado
-    // nativa de React a un componente hijo
+    
     setFilters(prevState => ({
       ...prevState,
-      category: event.target.value
+      category: event.target.value === 'all' ? 'all' : +event.target.value
     }))
   }
 
@@ -66,10 +64,11 @@ export function Filters () {
         <label htmlFor={categoryFilterId}>Categoría</label>
         <select value={filters.category} className='w-fit cursor-pointer rounded-full border-2 hover:shadow-md hover:shadow-m-purple  text-gray-500 select-none p-1 border-m-purple focus:outline-none' id={categoryFilterId} onChange={handleChangeCategory}>
           <option className=' text-m-purple font-semibold' value='all'>Todas</option>
-          <option className='text-m-purple font-semibold' value="men's clothing">Ropa de hombre</option>
-          <option className='text-m-purple font-semibold' value='jewelery'>Joyería</option>
-          <option className='text-m-purple font-semibold' value='electronics'>Electronica</option>
-          <option className='text-m-purple font-semibold' value="women's clothing">Ropa de mujer</option>
+          {categories.map(category => {
+            return(
+              <option key={category.id} className='text-m-purple font-semibold' value={category.id} >{category.name}</option>
+              )
+          })}          
         </select>
       </div>
       
